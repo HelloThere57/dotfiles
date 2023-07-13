@@ -1,0 +1,50 @@
+#!/bin/zsh
+
+source ~/.varrc
+
+alias rc="source ~/.zshrc"
+alias rcedit="$EDITOR ~/.userrc"
+
+alias picom="picom -b --experimental-backend"
+alias 7z="p7zip"
+alias blutui="bluetuith"
+alias sigh="startx"
+alias mp="ncmpcpp"
+alias clock="tty-clock -t -c"
+alias pmixer="pulsemixer"
+alias dae="daemonize"
+
+alias lock="i3lock --color 000000"
+alias shutdown="sudo shutdown 0"
+alias reboot="sudo reboot"
+
+
+alias vim="nvim"
+alias vi="nvim"
+
+alias run="./run || ./run.sh"
+alias ..="c .."
+
+alias gs="git status"
+
+
+source cd_funcs
+if [[ $(ps -A | grep Xorg) || $TMUX ]]; then
+	c 
+	# echo
+else
+	setfont -d
+	cd ~
+	window_manager=$(gum choose --header "Window Manager" "i3" "tty" )
+
+	if [[ $window_manager == "i3" ]]; then
+		export I3_THEME="default"
+		source ~/.varrc
+
+		echo exec i3 > ~/.xinitrc
+		startx &
+
+	else
+		source ~/.varrc
+	fi
+fi

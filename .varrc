@@ -1,0 +1,17 @@
+
+export EDITOR="nvim"
+
+export XDG_CONFIG_HOME=$HOME/.config
+export BACKLIGHT="/sys/class/backlight/intel_backlight"
+export TERMINAL="kitty"
+export WALLPAPER_DIR="$HOME/.wallpapers"
+
+# export PATH="$PATH:path"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.ghcup/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.scripts"
+
+ln -sf $WALLPAPER_DIR $HOME/.wallpaper_dir
+
+
