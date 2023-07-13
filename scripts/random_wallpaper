@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -xe
+
+cd $HOME/.wallpaper_dir
+wall=$(ls | shuf | head -n 1)
+
+real=$(realpath $wall)
+
+ln -sf $real $HOME/.current_wallpaper
+
+feh --bg-fill $HOME/.current_wallpaper
+

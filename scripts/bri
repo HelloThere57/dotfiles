@@ -1,0 +1,20 @@
+#!/bin/sh
+
+
+max_bri=120000
+
+percent=$1
+
+if [[ ! $1 ]]; then
+	current=$(cat $BACKLIGHT/brightness)
+	percent=$(expr $current \* 100 / $max_bri)
+fi
+
+too_big=$(expr $percent \* $max_bri)
+# delayed division to avoid floating point (not possible in bash)
+just_right=$(expr $too_big / 100)
+
+if [[ $1 ]]; then
+	echo $just_right | sudo tee $BACKLIGHT/brightness > /dev/null
+fi
+echo $percent% = $(cat $BACKLIGHT/brightness)

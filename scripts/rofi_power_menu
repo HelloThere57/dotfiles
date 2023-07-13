@@ -1,0 +1,11 @@
+#!/bin/sh
+
+chosen=$(printf " Power Off\n Restart\n󰩈 Log Out\n Lock" | rofi -dmenu -i)
+
+case "$chosen" in
+	" Power Off") sudo shutdown 0;;
+	" Restart") reboot ;;
+	"󰩈 Log Out") i3-msg exit ;;
+	" Lock") i3lock --color 000000 ;;
+	*) exit 1 ;;
+esac

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# connect monitor
+right_monitor
+
+# disable mouse acceleration
+mouse_accel
+
+# start mpd
+if [[ ! $(ps -A | grep mpd) ]]; then
+  mpd
+fi
+
+source ~/.varrc
+
+if [[ ! $(ps -A | grep picom) ]]; then
+  picom -b --experimental-backend
+fi
+
+if [[ ! $(ps -A | grep mpd-discord-rpc) ]]; then
+  mpd-discord-rpc
+fi
+
+random_wallpaper

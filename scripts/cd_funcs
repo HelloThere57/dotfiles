@@ -1,0 +1,31 @@
+#!/bin/sh
+
+c() {
+	if [ $1 ]; then
+  		if [ -d $1 ]; then
+    		cd $1
+  		else 
+    		echo $1 is not a directory
+    		return
+  		fi
+	fi
+	clear
+	echo $(pwd)
+	exa --icons -s extension -l --git-ignore --git
+}
+
+
+ca() {  
+  if [ $1 ]; then
+    if [ -d $1 ]; then
+      cd $1
+    else 
+      echo $1 is not a directory
+      return
+    fi
+  fi
+  clear
+  echo $(pwd)
+  exa --icons -s extension -la --git
+  
+}

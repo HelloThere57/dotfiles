@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [[ $1 ]]; then
+  pactl set-sink-volume @DEFAULT_SINK@ $1%
+fi
+pamixer --get-volume

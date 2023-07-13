@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+if [[ ! $(tmux ls | grep kitty) ]]; then
+  tmux new -d -s kitty zsh
+fi
+
+kitty tmux a -t kitty

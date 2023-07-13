@@ -1,0 +1,4 @@
+#!/bin/sh
+
+maim -s > ~/.clip.png
+xclip -sel clip -t image/png ~/.clip.png

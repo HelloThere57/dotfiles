@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[ ! $(tmux ls | grep ncspot) ]]; then
+  tmux new -d -s ncspot ncspot
+fi
+
+kitty tmux a -t ncspot &
+sleep 0.3
+i3-msg floating enable
