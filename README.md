@@ -6,3 +6,12 @@ Required software:
 
 
 A lot of my dotfiles are very environment dependent, but the neovim config should work independently
+
+Neovim features:
+- Lots of rebinds (check out nvim/lua/config/binds.lua)
+- NvimTree plugin
+- LSP Completion and installation
+- Discord Rich Presence when editing
+- Treesitter installed (pretty essential)
+- NvimTelescope for navigation
+- Extra characters to show when a line has trailing whitespace (harder than you'd think the get)
